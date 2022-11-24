@@ -3,9 +3,6 @@
 ## Introduction
 I recently cleared SAA-CO3 which was updated by AWS last Aug 30, 2022. The exam update comprises of increased enterprise demand for optimizations in fast-changing areas such as security, resiliency, data volume, cost optimization, and the design of high-performance systems by [AWS Certification and Training](https://aws.amazon.com/blogs/training-and-certification/aws-certified-solutions-architect-associate-exam-updated-to-align-with-latest-trends-and-innovations/)
 
-
-![aws-certified-solutions-architect-associate.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1669295966222/njUdddOga.png align="center")
-
 The exam still consist of 65 questions with 15 unknown unscored questions to be used by AWS for performance evaluation and as a future question, in short 50 questions is the total scored questions. Target takers of this exam may be a developer or architect interested in using AWS services.
 
 ## Preparation
