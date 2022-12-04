@@ -1,8 +1,8 @@
 # AWS Lambda SnapStart using Micronaut
 
-Recently AWS announced in re:Invent 2022 the AWS Lambda SnapStart feature. This feature improves the cold startup performance of Java applications which can be done by supported microservice frameworks like Spring Boot, Quarkus and Micronaut.
+Recently AWS announced in re:Invent 2022 the AWS Lambda SnapStart feature. This feature improves the cold startup performance of Java applications which can be done by supported cloud-native frameworks like Spring Boot, Quarkus and Micronaut.
 
-In this blog, we'll see how it performs using Micronaut and the JDK runtime version used is Java 11 (Amazon Corretto).
+In this post, we'll see how it performs using Micronaut and the JDK runtime version used is Java 11 (Amazon Corretto).
 
 ## A simple architecture
 
@@ -16,21 +16,21 @@ Initially, when we create a function, SnapStart is disabled. This is a function 
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1670160580267/BPUvdpKiU.png align="left")
 
-SnapStart will work in two things, you should **Enable SnapStart** and **publish a new version** of it. You can create an alias to be used as a new target of your API Gateway
+SnapStart will work in two things, you should **Enable SnapStart** and **publish a new version** of it. You can create an alias to be used as a new target of your API Gateway.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1670160863346/e_w_gsXds.png align="left")
 
-An example alias pointing to the new version:
+An example alias pointing to the new version.
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1670160911853/pSsdWditI.png align="left")
 
 ## Request Invocation
 
-I've created a simple POST request which has a query parameter of name
+I've created a simple POST request which has a query parameter, name.
 
 `?name=Tristan`
 
-The response to this request will be a JSON body with string transformation (concatenate the name with Hi)
+The response to this request will be a JSON body with string transformation (concatenate the name with Hi).
 
 ```json
 {
