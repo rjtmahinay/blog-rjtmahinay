@@ -40,7 +40,7 @@ The response to this request will be a JSON body with string transformation (con
 
 ### Micronaut Code
 
-The string transformation will be handled by a simple Micronaut Lambda code as seen below:
+The string transformation will be handled by a simple Micronaut Lambda code as seen below.
 
 ```java
 @Slf4j
@@ -74,7 +74,7 @@ To test the performance of this new feature. I've used JMeter as my load testing
 
 ## Insights
 
-Using CloudWatch logs and insights, I've performed some monitoring metrics for durations as prescribed in [SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-monitoring.html) Monitoring and got the different percentiles for each configuration.
+Using CloudWatch logs and insights, I've performed some monitoring metrics for durations as prescribed in [SnapStart Monitoring](https://docs.aws.amazon.com/lambda/latest/dg/snapstart-monitoring.html) and got the different percentiles for each configuration.
 
 | Configuration | 50th percentile | 99.9th percentile |
 | --- | --- | --- |
@@ -83,7 +83,7 @@ Using CloudWatch logs and insights, I've performed some monitoring metrics for d
 
 ## Final Thoughts
 
-This blog shows the results of a simple Micronaut Function Application for Serverless by comparing the Lambda configuration with or without SnapStart enabled. We can see that due to ahead-of-time initialization optimization. We can see a big difference in the app's latency.
+This blog post shows the results of a simple Micronaut Function Application for Serverless by comparing the Lambda configuration with or without SnapStart enabled. We can see that due to ahead-of-time initialization optimization. We can see a big difference in the app's latency.
 
 ## Further Reading
 
