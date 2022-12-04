@@ -57,7 +57,6 @@ public class FunctionRequestHandler extends MicronautRequestHandler<APIGatewayPr
                     Collections.singletonMap("message", "Hi " + inputParam.get("name")));
             response.setStatusCode(200);
             response.setBody(json);
-            log.info("Output: {}", response.getBody());
         } catch (JsonProcessingException e) {
             response.setStatusCode(500);
         }
