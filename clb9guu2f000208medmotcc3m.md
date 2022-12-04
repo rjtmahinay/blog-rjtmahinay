@@ -82,7 +82,7 @@ Using CloudWatch logs and insights, I've performed some monitoring metrics for d
 
 ## Final Thoughts
 
-This blog post shows the results of a simple Micronaut Function Application for Serverless by comparing the Lambda configuration with or without SnapStart enabled. We can see that due to ahead-of-time initialization optimization. We can see a big difference in the app's latency.
+This blog post shows the results of a simple Micronaut Function Application for Serverless by comparing the Lambda configuration with or without SnapStart enabled. We can see the app's latency improved due to ahead-of-time initialization optimization
 
 ## Further Reading
 
