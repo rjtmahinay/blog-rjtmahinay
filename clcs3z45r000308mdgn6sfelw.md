@@ -88,7 +88,7 @@ public class Application {
 
 ### Creating a Bean
 
-In Micronaut you can create your beans inside a configuration called Factory. This factory class will load your specified beans. It is the counterpart of **@Configuration** in Spring. Below are some used annotations for bean creation.
+In Micronaut you can create your beans inside a configuration called Factory. This factory class will load your specified beans. It is the counterpart of **Configuration** in Spring. Below are some used annotations for bean creation.
 
 ```java
 @Factory // The configuration annotation to create your beans
@@ -118,7 +118,7 @@ public class ApplicationConfiguration {
 
 ### Autowire a bean
 
-In Spring we use the @Autowired annotation but in Micronaut it leverages the use of **@Inject** of *jakarta* annotations library.
+In Spring we use the Autowired annotation but in Micronaut it leverages the use of **Inject** of *jakarta* annotations library.
 
 ```java
 @Inject // Autowires your bean in the ApplicationContext
@@ -127,7 +127,7 @@ private EmployeeBean singletonBean;
 
 ### Creating Properties
 
-Just like in Spring Boot, we want to configure our custom property class. It uses the same syntax in Spring called **@ConfigurationProperties**
+Just like in Spring Boot, we want to configure our custom property class. It uses the same syntax in Spring called **ConfigurationProperties**
 
 ```java
 // The value of the annotation is the name of your property
@@ -147,11 +147,11 @@ private String value;
 
 ### Define your DTO
 
-You can use a DTO to map your JSON request and pass it to persistence layer model. Here we encounter the annotations **@Serdeable** and **@Introspected.**
+You can use a DTO to map your JSON request and pass it to persistence layer model. Here we encounter the annotations **Serdeable** and **Introspected.**
 
 In Java 17, you can now use records as your request/response model. This removes the use of [Lombok](https://projectlombok.org/) library for most cases.
 
-Other annotations like **@NotEmpty** and **@DecimalMin** are part of *javax* validations.
+Other annotations like **NotEmpty** and **DecimalMin** are part of *javax* validations.
 
 ```java
 @Serdeable // Used for JSON serialization
@@ -166,7 +166,7 @@ The persistence layer is composed of the repository and its entity. The library 
 
 #### Define your entity
 
-Defining your entity is similar to using the basic JPA format where you initialize it using **@Entity** and **@Table.** The difference here is you must annotate your class using **@Serdeable** for compile-time serialization.
+Defining your entity is similar to using the basic JPA format where you initialize it using **Entity** and **Table.** The difference here is you must annotate your class using **Serdeable** for compile-time serialization.
 
 ```java
 @Serdeable // Used for compile-time serialization
@@ -213,7 +213,7 @@ public interface ReactiveEmployeeRepository extends ReactorCrudRepository<Employ
 
 ### The Service Layer
 
-The concept of the service layer is mostly used in the time of Monolithic Architecture which uses the MVC Design Pattern. Although there is no **@Service** annotation in Micronaut, you can use the existing **@Singleton** to create your service. After all, services are used as beans.
+The concept of the service layer is mostly used in the time of Monolithic Architecture which uses the MVC Design Pattern. Although there is no **Service** annotation in Micronaut, you can use the existing **Singleton** to create your service. After all, services are used as beans.
 
 ```java
 public interface SynchronousEmployeeService {
@@ -240,7 +240,7 @@ public class SynchronousEmployeeServiceImpl implements SynchronousEmployeeServic
 
 ### The Controller Layer
 
-This consists of your API definitions in Micronaut. It is similar to Spring's @Controller but the difference is you need an additional @RestController for your return type to be serialized. In Micronaut, it is already done by one annotation.
+This consists of your API definitions in Micronaut. It is similar to Spring's **Controller** but the difference is you need an additional **RestController** for your return type to be serialized. In Micronaut, it is already done by one annotation.
 
 ```java
 // Used for making the API managed by Micronaut threading
@@ -263,7 +263,7 @@ public Optional<Employee> getEmployee(Long id) {
 }
 ```
 
-POST
+#### POST
 
 This will invoke an add operation to your persistence layer and custom response. The additional **@Body** annotation can be optionally removed since Micronaut knows that it is your request body. The **@Valid** annotation asserts that your request body should be validated.
 
@@ -274,9 +274,9 @@ public Employee createEmployee(@Body @Valid EmployeeDto employeeDto) {
 }
 ```
 
-PUT
+#### PUT
 
-This will invoke an update to your data. In the case of combining a Path Parameter and Request Body. You can define it using **@PathVariable** (similar to Spring) and **@Body**.
+This will invoke an update to your data. In the case of combining a Path Parameter and Request Body. You can define it using **PathVariable** (similar to Spring) and **Body**.
 
 ```java
 @Put(uri = "/update/{id}", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
@@ -285,7 +285,7 @@ public Employee updateEmployee(@PathVariable Long id, @Body @Valid EmployeeDto e
 }
 ```
 
-DELETE
+#### DELETE
 
 This will invoke a deletion of your data.
 
