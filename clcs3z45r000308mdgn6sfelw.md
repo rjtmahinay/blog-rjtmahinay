@@ -309,7 +309,7 @@ Sometimes you want to put a cache for method calls in your API. This is usually 
 @CacheInvalidate("synchronous-employee")
 ```
 
-## Running the application
+## 👨🏻‍💻 Running the application
 
 You can run the application using the build management tool. For this demo, I've used Gradle as my build management tool. You can run your newly created application via the command below:
 
