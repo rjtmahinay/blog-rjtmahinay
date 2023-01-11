@@ -309,6 +309,61 @@ Sometimes you want to put a cache for method calls in your API. This is usually 
 @CacheInvalidate("synchronous-employee")
 ```
 
+### Exceptions
+
+Handling exceptions in Micronaut can be done using the **Error** annotation or the custom one. Below is a method defined in a controller.
+
+```bash
+@Error
+public HttpResponse<JsonError> error(HttpRequest<?> request, Throwable e) {
+    JsonError error = new JsonError("Exception in Synchronous Controller: " + e.getMessage())
+            .link(Link.SELF, Link.of(request.getUri()));
+
+    return HttpResponse.<JsonError>serverError()
+            .body(error);
+}
+```
+
+If you want it to be used in all controllers, just set a value of *global=true* in the annotation.
+
+```java
+@Error(global = true)
+public HttpResponse<JsonError> error(HttpRequest<?> request, Throwable e) {
+    // your logic
+}
+```
+
+You can also create your custom exceptions. Here it states that it requires an EmployeeException to invoke.
+
+```java
+@Singleton
+// Equivalent annotation of @ConditionalOn*** in Spring
+@Requires(classes = EmployeeException.class)
+public class EmployeeExceptionHandler implements ExceptionHandler<EmployeeException, HttpResponse<?>> {
+
+    @Inject
+    private ErrorResponseProcessor<?> errorResponseProcessor;
+
+    @Override
+    public HttpResponse<?> handle(HttpRequest request, EmployeeException exception) {
+        return errorResponseProcessor.processResponse(
+                ErrorContext.builder(request)
+                        .cause(exception)
+                        .errorMessage("Handled by custom handler").build(),
+                HttpResponse.badRequest());
+    }
+}
+```
+
+For this to work, you must disable the HTTP Client Exception property.
+
+```yaml
+micronaut:
+    http:
+      client:
+        exception-on-error-status: true
+```
+
 ## 👨🏻‍💻 Running the application
 
 You can run the application using the build management tool. For this demo, I've used Gradle as my build management tool. You can run your newly created application via the command below:
