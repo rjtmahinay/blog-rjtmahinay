@@ -265,7 +265,7 @@ public Optional<Employee> getEmployee(Long id) {
 
 #### POST
 
-This will invoke an add operation to your persistence layer and custom response. The additional **@Body** annotation can be optionally removed since Micronaut knows that it is your request body. The **@Valid** annotation asserts that your request body should be validated.
+This will invoke an add operation to your persistence layer and custom response. The additional **Body** annotation can be optionally removed since Micronaut knows that it is your request body. The **Valid** annotation asserts that your request body should be validated.
 
 ```java
 @Post(uri = "/add", consumes = MediaType.APPLICATION_JSON, produces = MediaType.APPLICATION_JSON)
